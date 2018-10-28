@@ -4,13 +4,13 @@
 
 char* distancias;
 int cidades;
-char *permutacoes;
+char *permutacoes = ;
 int *somas;
 
 
 void troca(unsigned char vetor[], int i)
 {
-    int aux = vetor[0];
+    unsigned char aux = vetor[0];
     vetor[0] = vetor[i];
     vetor[i] = aux;
 }
@@ -24,13 +24,16 @@ void permuta(){
 
         npermutacoes *= i;
     }
-    permutacoes = malloc(sizeof(char)*npermutacoes);
+    int *vetor_cidades = malloc(sizeof(int)*npermutacoes);
+    for (int i = 0; i < cidades; ++i) {
+        vetor_cidades[i] = i;
+    }
     unsigned char *vetor = malloc(sizeof(cidades));
         for(int i = 0; i <= npermutacoes; i++)
         {
-            troca(vetor, 0, i);
-            permuta(vetor, 1, sup);
-            troca(vetor, 0, i); // backtracking
+            troca(vetor_cidades, 0, i);
+            //preencher a variavel permutaçoes
+            troca(vetor_cidades, 0, i); // backtracking
         }
 
 }
